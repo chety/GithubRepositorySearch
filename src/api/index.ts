@@ -23,7 +23,7 @@ export const getTotalPageCount = (response: any): number => {
 export const getRepositoryLanguges = async (repos: any[]): Promise<any> => {
     const languageUrlRequests: Promise<any>[] = repos.map((item: any) => axios(item.languages_url, {
         headers: {
-            Authorization: `bearer ${process.env.REACT_APP_GITHUB_TOKEN}`
+            Authorization: `bearer ${process.env.REACT_APP_GITHUB_TOKEN || 'aa3f73b84f8c3295297ab58adb045fa063bc1070'}`
         }
     }))
     const languages = await Promise.all(languageUrlRequests);
